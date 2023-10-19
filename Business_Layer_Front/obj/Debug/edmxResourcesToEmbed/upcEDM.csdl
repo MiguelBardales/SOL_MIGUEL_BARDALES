@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBALUMNOS">
+    <Key>
+      <PropertyRef Name="DNI" />
+    </Key>
+    <Property Name="DNI" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CODIGO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDOS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBCURSOS">
+    <Key>
+      <PropertyRef Name="IDCURSO" />
+    </Key>
+    <Property Name="IDCURSO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CREDITOS" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBMATRICULA">
+    <Key>
+      <PropertyRef Name="IDMATRICULA" />
+    </Key>
+    <Property Name="IDMATRICULA" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCURSO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="VACANTES" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DNI" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="TIPOMATRICULA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="REGMATRICULATIME" Type="DateTime" Precision="6" />
+    <Property Name="ANULMATRICULATIME" Type="DateTime" Precision="6" />
+    <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBSECCION">
+    <Key>
+      <PropertyRef Name="IDSECCION" />
+    </Key>
+    <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBVACANTES">
+    <Key>
+      <PropertyRef Name="IDVACANTES" />
+    </Key>
+    <Property Name="IDVACANTES" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCURSO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="VACANTES" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="EntitySolo" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBALUMNOS" EntityType="Self.TBALUMNOS" />
+    <EntitySet Name="TBCURSOS" EntityType="Self.TBCURSOS" />
+    <EntitySet Name="TBMATRICULA" EntityType="Self.TBMATRICULA" />
+    <EntitySet Name="TBSECCION" EntityType="Self.TBSECCION" />
+    <EntitySet Name="TBVACANTES" EntityType="Self.TBVACANTES" />
+  </EntityContainer>
+</Schema>

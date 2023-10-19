@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ModelEntity.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBALUMNOS">
+          <Key>
+            <PropertyRef Name="DNI" />
+          </Key>
+          <Property Name="DNI" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="CODIGO" Type="varchar2" MaxLength="20" />
+          <Property Name="NOMBRES" Type="varchar2" MaxLength="100" />
+          <Property Name="APELLIDOS" Type="varchar2" MaxLength="100" />
+          <Property Name="ESTADO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBCURSOS">
+          <Key>
+            <PropertyRef Name="IDCURSO" />
+          </Key>
+          <Property Name="IDCURSO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" />
+          <Property Name="CREDITOS" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBMATRICULA">
+          <Key>
+            <PropertyRef Name="IDMATRICULA" />
+          </Key>
+          <Property Name="IDMATRICULA" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCURSO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" />
+          <Property Name="VACANTES" Type="number" Precision="38" Scale="0" />
+          <Property Name="DNI" Type="char" MaxLength="8" />
+          <Property Name="TIPOMATRICULA" Type="char" MaxLength="1" />
+          <Property Name="REGMATRICULATIME" Type="timestamp" Precision="6" />
+          <Property Name="ANULMATRICULATIME" Type="timestamp" Precision="6" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TBSECCION">
+          <Key>
+            <PropertyRef Name="IDSECCION" />
+          </Key>
+          <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" />
+          <Property Name="ESTADO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBVACANTES">
+          <Key>
+            <PropertyRef Name="IDVACANTES" />
+          </Key>
+          <Property Name="IDVACANTES" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCURSO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" />
+          <Property Name="VACANTES" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ModelEntityStoreContainer">
+          <EntitySet Name="TBALUMNOS" EntityType="Self.TBALUMNOS" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBCURSOS" EntityType="Self.TBCURSOS" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBMATRICULA" EntityType="Self.TBMATRICULA" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBSECCION" EntityType="Self.TBSECCION" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBVACANTES" EntityType="Self.TBVACANTES" Schema="SYSTEM" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBALUMNOS">
+          <Key>
+            <PropertyRef Name="DNI" />
+          </Key>
+          <Property Name="DNI" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CODIGO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBCURSOS">
+          <Key>
+            <PropertyRef Name="IDCURSO" />
+          </Key>
+          <Property Name="IDCURSO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CREDITOS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBMATRICULA">
+          <Key>
+            <PropertyRef Name="IDMATRICULA" />
+          </Key>
+          <Property Name="IDMATRICULA" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCURSO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="VACANTES" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DNI" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="TIPOMATRICULA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="REGMATRICULATIME" Type="DateTime" Precision="6" />
+          <Property Name="ANULMATRICULATIME" Type="DateTime" Precision="6" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBSECCION">
+          <Key>
+            <PropertyRef Name="IDSECCION" />
+          </Key>
+          <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBVACANTES">
+          <Key>
+            <PropertyRef Name="IDVACANTES" />
+          </Key>
+          <Property Name="IDVACANTES" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCURSO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDSECCION" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="VACANTES" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="EntitySolo" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBALUMNOS" EntityType="Self.TBALUMNOS" />
+          <EntitySet Name="TBCURSOS" EntityType="Self.TBCURSOS" />
+          <EntitySet Name="TBMATRICULA" EntityType="Self.TBMATRICULA" />
+          <EntitySet Name="TBSECCION" EntityType="Self.TBSECCION" />
+          <EntitySet Name="TBVACANTES" EntityType="Self.TBVACANTES" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelEntityStoreContainer" CdmEntityContainer="EntitySolo">
+          <EntitySetMapping Name="TBALUMNOS">
+            <EntityTypeMapping TypeName="ModelEntity.TBALUMNOS">
+              <MappingFragment StoreEntitySet="TBALUMNOS">
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBCURSOS">
+            <EntityTypeMapping TypeName="ModelEntity.TBCURSOS">
+              <MappingFragment StoreEntitySet="TBCURSOS">
+                <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CREDITOS" ColumnName="CREDITOS" />
+                <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBMATRICULA">
+            <EntityTypeMapping TypeName="ModelEntity.TBMATRICULA">
+              <MappingFragment StoreEntitySet="TBMATRICULA">
+                <ScalarProperty Name="IDMATRICULA" ColumnName="IDMATRICULA" />
+                <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+                <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+                <ScalarProperty Name="VACANTES" ColumnName="VACANTES" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="TIPOMATRICULA" ColumnName="TIPOMATRICULA" />
+                <ScalarProperty Name="REGMATRICULATIME" ColumnName="REGMATRICULATIME" />
+                <ScalarProperty Name="ANULMATRICULATIME" ColumnName="ANULMATRICULATIME" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBSECCION">
+            <EntityTypeMapping TypeName="ModelEntity.TBSECCION">
+              <MappingFragment StoreEntitySet="TBSECCION">
+                <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBVACANTES">
+            <EntityTypeMapping TypeName="ModelEntity.TBVACANTES">
+              <MappingFragment StoreEntitySet="TBVACANTES">
+                <ScalarProperty Name="IDVACANTES" ColumnName="IDVACANTES" />
+                <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+                <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+                <ScalarProperty Name="VACANTES" ColumnName="VACANTES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

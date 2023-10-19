@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelEntityStoreContainer" CdmEntityContainer="EntitySolo">
+    <EntitySetMapping Name="TBALUMNOS">
+      <EntityTypeMapping TypeName="ModelEntity.TBALUMNOS">
+        <MappingFragment StoreEntitySet="TBALUMNOS">
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBCURSOS">
+      <EntityTypeMapping TypeName="ModelEntity.TBCURSOS">
+        <MappingFragment StoreEntitySet="TBCURSOS">
+          <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="CREDITOS" ColumnName="CREDITOS" />
+          <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBMATRICULA">
+      <EntityTypeMapping TypeName="ModelEntity.TBMATRICULA">
+        <MappingFragment StoreEntitySet="TBMATRICULA">
+          <ScalarProperty Name="IDMATRICULA" ColumnName="IDMATRICULA" />
+          <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+          <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+          <ScalarProperty Name="VACANTES" ColumnName="VACANTES" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="TIPOMATRICULA" ColumnName="TIPOMATRICULA" />
+          <ScalarProperty Name="REGMATRICULATIME" ColumnName="REGMATRICULATIME" />
+          <ScalarProperty Name="ANULMATRICULATIME" ColumnName="ANULMATRICULATIME" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBSECCION">
+      <EntityTypeMapping TypeName="ModelEntity.TBSECCION">
+        <MappingFragment StoreEntitySet="TBSECCION">
+          <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBVACANTES">
+      <EntityTypeMapping TypeName="ModelEntity.TBVACANTES">
+        <MappingFragment StoreEntitySet="TBVACANTES">
+          <ScalarProperty Name="IDVACANTES" ColumnName="IDVACANTES" />
+          <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+          <ScalarProperty Name="IDSECCION" ColumnName="IDSECCION" />
+          <ScalarProperty Name="VACANTES" ColumnName="VACANTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelEntity.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBALUMNOS">
+    <Key>
+      <PropertyRef Name="DNI" />
+    </Key>
+    <Property Name="DNI" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="CODIGO" Type="varchar2" MaxLength="20" />
+    <Property Name="NOMBRES" Type="varchar2" MaxLength="100" />
+    <Property Name="APELLIDOS" Type="varchar2" MaxLength="100" />
+    <Property Name="ESTADO" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBCURSOS">
+    <Key>
+      <PropertyRef Name="IDCURSO" />
+    </Key>
+    <Property Name="IDCURSO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" />
+    <Property Name="CREDITOS" Type="number" Precision="38" Scale="0" />
+    <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBMATRICULA">
+    <Key>
+      <PropertyRef Name="IDMATRICULA" />
+    </Key>
+    <Property Name="IDMATRICULA" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCURSO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" />
+    <Property Name="VACANTES" Type="number" Precision="38" Scale="0" />
+    <Property Name="DNI" Type="char" MaxLength="8" />
+    <Property Name="TIPOMATRICULA" Type="char" MaxLength="1" />
+    <Property Name="REGMATRICULATIME" Type="timestamp" Precision="6" />
+    <Property Name="ANULMATRICULATIME" Type="timestamp" Precision="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="TBSECCION">
+    <Key>
+      <PropertyRef Name="IDSECCION" />
+    </Key>
+    <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="100" />
+    <Property Name="ESTADO" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBVACANTES">
+    <Key>
+      <PropertyRef Name="IDVACANTES" />
+    </Key>
+    <Property Name="IDVACANTES" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCURSO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDSECCION" Type="number" Precision="38" Scale="0" />
+    <Property Name="VACANTES" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="ModelEntityStoreContainer">
+    <EntitySet Name="TBALUMNOS" EntityType="Self.TBALUMNOS" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="TBCURSOS" EntityType="Self.TBCURSOS" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="TBMATRICULA" EntityType="Self.TBMATRICULA" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="TBSECCION" EntityType="Self.TBSECCION" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="TBVACANTES" EntityType="Self.TBVACANTES" Schema="SYSTEM" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Matricula";
+    Layout = "~/Views/Shared/_LayoutUpc.cshtml";
+}
+
+<div class="form-row">
+    <div class="form-group col-md-2 mb-2" style="height:6.5em;">
+        <label for="txtDni">DNI</label>
+        <input type="text" class="form-control" id="txtDni" placeholder="DNI" maxlength="8" required>
+        <button type="button" class="btn btn-primary mb-2" id="btnBuscarAlumno">Buscar</button>
+    </div>
+    <div class="form-group col-md-2 mb-2" style="height:6.5em;">
+        <label for="txtCodigo">Código</label>
+        <input type="text" readonly="readonly" class="form-control" id="txtCodigo" placeholder="Código">
+    </div>
+    <div class="form-group col-md-3 mb-3" style="height:6.5em;">
+        <label for="txtNombres">Nombres</label>
+        <input type="text" readonly="readonly" class="form-control" id="txtNombres" placeholder="Nombres">
+    </div>
+    <div class="form-group col-md-3 mb-3" style="height:6.5em;">
+        <label for="txtApellidos">Apellidos</label>
+        <input type="text" readonly="readonly" class="form-control" id="txtApellidos" placeholder="Apellidos">
+    </div>
+    <div class="form-group col-md-2 mb-2" style="height:6.5em;">
+        <label for="txtEstado">Estado</label>
+        <input type="text" readonly="readonly" class="form-control" id="txtEstado" placeholder="Estado">
+    </div>
+</div>
+
+
+
+<div class="form-row">
+    <div class="form-group col-md-2 mb-2">
+        <label for="cboSeccion">Sección</label>
+        <select class="select form-control" id="cboSeccion" readonly="readonly">
+        </select>
+    </div>
+    <div class="form-group col-md-2 mb-2">
+        <label for="cboCurso">Curso</label>
+        <select class="select form-control" id="cboCurso" readonly="readonly">
+        </select>
+    </div>
+    <div class="form-group col-md-3 mb-3">
+        <label for="txtCreditos">Créditos</label>
+        <input type="text" class="form-control" id="txtCreditos" placeholder="Créditos" readonly="readonly">
+    </div>
+    <div class="form-group col-md-3 mb-3">
+        <label for="txtVacantes">Vacantes</label>
+        <input type="text" class="form-control" id="txtVacantes" placeholder="Vacantes" readonly="readonly">
+    </div>
+    <div class="form-group col-md-2 mb-2">
+        <label for="chkPresencial">Presencial</label>
+        <input type="checkbox" class="form-control" id="chkPresencial" disabled="disabled">
+    </div>
+</div>
+
+<br />
+<div class="form-row">
+    <div class="form-group col-md-6 mb-6">
+        <button class="btn btn-primary mb-12" id="btnGuardar" type="button">Guardar</button>
+    </div>
+    <div class="form-group col-md-6 mb-6">
+        <button type="button" class="btn btn-secondary btn-lg btn-block" id="btnReporte" onclick="genReporte();">Reporte</button>
+    </div>
+</div>
+
+
+
+
+<h2>Listado de Matrícula</h2>
+
+
+<table class="table" id="tblMatricula2">
+    <thead>
+        <tr>
+            <th scope="col"># ACCIONES</th>
+            <th scope="col" style="display:none;">IDMATRICULA</th>
+            <th scope="col">CODIGO</th>
+            <th scope="col">NOMBRES</th>
+            <th scope="col">APELLIDOS</th>
+            <th scope="col">IDCURSO</th>
+            <th scope="col">DESCRIPCION DEL CURSO</th>
+            <th scope="col">CREDITOS</th>
+            <th scope="col">NOMBRE SECCION</th>
+            <th scope="col">TIPO MATRICULA</th>
+            <th scope="col">FECHA MATRICULA</th>
+            <th scope="col">FECHA ANULACION</th>
+        </tr>
+    </thead>
+    <tbody id="contenido2">
+    </tbody>
+</table>
